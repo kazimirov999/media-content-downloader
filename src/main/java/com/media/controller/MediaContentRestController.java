@@ -33,8 +33,7 @@ public class MediaContentRestController {
     private Job jobSeries;
 
     private final Logger LOG = LoggerFactory.getLogger(this.getClass());
-
-    @ResponseBody
+    
     @RequestMapping(value = "/import", method = RequestMethod.POST)
     public ResponseEntity<String> importMedia(@RequestBody MediaImportBean mediaImportBean) {
         JobExecution jobExecution;
@@ -48,6 +47,7 @@ public class MediaContentRestController {
             return new ResponseEntity<>(INTERNAL_SERVER_ERROR);
         }
         String executeStatus = jobExecution.getStatus().getBatchStatus().toString();
+        
         return new ResponseEntity<>(executeStatus, OK);
     }
 }
