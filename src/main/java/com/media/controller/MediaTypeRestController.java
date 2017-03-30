@@ -15,10 +15,9 @@ import java.util.List;
 @RequestMapping("/media-type")
 public class MediaTypeRestController {
 
-    @ResponseBody
     @RequestMapping(value = "/get/all", method = RequestMethod.GET)
     public ResponseEntity<List<MediaType>> getAllMediaTypes() {
-
+        
         return new ResponseEntity<>(Arrays.asList(MediaType.values()), HttpStatus.OK);
     }
 }
